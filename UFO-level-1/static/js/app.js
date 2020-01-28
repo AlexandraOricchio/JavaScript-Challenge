@@ -19,26 +19,25 @@ tableData.forEach(sighting => {
     });
 });
 
-
-// code that will listen for events & search throught date column
-// to find rows that match user input
-
-// get reference to button 
+// get reference to button
 var button = d3.select("#filter-btn");
-
-// create event listener for when the button is clicked
+// create event listener
 button.on("click", function() {
-    // select the input element 
+
+    // select input element
     var inputElement = d3.select("#datetime");
     // get value property of input element
     var inputValue = inputElement.property("value");
     console.log(inputValue);
     console.log(tableData);
+
     // filter data based on input value
     var filterData = tableData.filter(sighting => sighting.datetime === inputValue);
     console.log(filterData);
+
     // clear data in table and fill table with filtered data only
     tbody.html("");
+
     // loop through filtered data and add to table
     filterData.forEach(sighting => {
         var row = tbody.append("tr");
